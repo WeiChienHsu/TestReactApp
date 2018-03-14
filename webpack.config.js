@@ -1,6 +1,6 @@
 module.exports = {
   entry: [
-    './src/index.js'
+    './src/index.js'  
   ],
   output: {
     path: __dirname,
@@ -10,7 +10,10 @@ module.exports = {
   module: {
     loaders: [{
       exclude: /node_modules/,
-      loader: 'babel'
+      loader: 'babel',
+      query: {
+        presets: ['react', 'es2015', 'stage-1']
+      }
     }]
   },
   resolve: {
