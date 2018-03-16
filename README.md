@@ -3,7 +3,8 @@
 ## Describe / It / Expect
 - Use "describe" to group together similar tests
 - Use "it" to test a single attribute of a target (Is that show the text)
-- Use "expect" to make an assertion about a target (I might assume the target is right)
+- Use "expect" to make an 
+ about a target (I might assume the target is right)
 
 ```js
 describe('Test App Component', () => {
@@ -33,4 +34,15 @@ Make a new file in your projects root folder called .babelrc and add the followi
 {
  "presets": ["react", "es2015", "stage-1"]
 }
+```
+
+# Chai jQuery
+[documentation](https://github.com/chaijs/chai-jquery)
+
+### exist
+Assert that the selection is not empty. Note that this overrides the built-in chai assertion. If the object asserted against is not a jQuery object, the original implementation will be called.
+
+```js
+$('#exists').should.exist;
+expect($('#nonexistent')).not.to.exist;
 ```
