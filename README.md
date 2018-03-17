@@ -46,3 +46,51 @@ Assert that the selection is not empty. Note that this overrides the built-in ch
 $('#exists').should.exist;
 expect($('#nonexistent')).not.to.exist;
 ```
+
+
+# beforeEach()
+- Set up to the component, run before any of each statements
+- We need to declare component as a constructor using let
+```js
+let component;
+
+beforeEach(() => {
+    component = renderComponent(CommentBox);
+})
+```
+
+## Test for the Render Component
+- In App Component to test if there is Comment Component class
+```js
+    it('has CommentBox component',() => {
+        expect(component.find('.comment-box')).to.exist;
+    });
+```
+
+## Test the textarea
+- Nest the "it" for the relative situation
+
+```js
+describe('entering some text', () => {
+
+    it('shows that text in the textarea', () => {
+
+    });
+
+    it('when submitted, clear the input', () => {
+
+    });
+```
+
+## Stimulation
+- Stimulate Situation
+```js
+beforeEach(() => {
+    component.find('textarea').simulate('change','new comment');
+});
+```
+- Stimulate Behaviors (Submit Event)
+- Replace the div to form
+```js
+
+```
