@@ -13,5 +13,9 @@ describe('App', () => {
         expect(component.find('.comment-box')).to.exist;
     });
 
+    it('has CommentList component',() => {
+        expect(component.find('comment-list')).to.exist;
+    })
+
 });
 
