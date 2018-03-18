@@ -95,7 +95,39 @@ beforeEach(() => {
 
 ```
 
+## Send a props to test
+```js
+describe('CommentList', () => {
+  let component;
+
+  beforeEach(() => {
+    const props = { comments: ['New Comment', 'Other New Comment'] };
+    component = renderComponent(CommentList, null, props);
+  });
+```
+
 ## Error need to be figured out
 ```js
 const list = props.comments.map(comment =>  <li key = {comment}>{comment}</li> );
+```
+
+
+## Test Action Creator
+- correct Type
+- correct payload
+
+```js
+describe('actions', () => {
+  describe('saveComment', () => {
+      it('has the correct type',() => {
+          const action = saveComment();
+          expect(action.type).to.equal(SAVE_COMMENT);
+      });
+
+      it('has the correct payload', () => {
+          const action = saveComment('new comment');
+          expect(action.payload).to.equal('new comment');
+      });
+  });
+});
 ```
