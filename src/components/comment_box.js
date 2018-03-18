@@ -5,16 +5,21 @@ export default class CommentBox extends Component{
       super(props);
       this.state = {comment: ''};
     }
+    
 
-    handleChenge(event){
+    handleChange(event){
       this.setState({
         comment: event.target.value
       });
     }
 
     handleSubmit(event){
+      
       event.preventDefault();
+      console.log(this.state.comment);
+      this.props.onCommetSubmit(this.state.comment);
       this.setState({comment:''});
+      
     }
 
     render(){
@@ -22,7 +27,7 @@ export default class CommentBox extends Component{
         <form onSubmit = {this.handleSubmit.bind(this)} className = "comment-box" >
           <textarea 
           value = {this.state.comment} 
-          onChange = {this.handleChenge.bind(this)}/>
+          onChange = {this.handleChange.bind(this)}/>
           <button action="submit"> Submit </button>
         </form>
       );

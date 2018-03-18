@@ -6,7 +6,6 @@ const CommentList = (props) => {
       return (
         <li 
         className = "comment-list"
-        key = {comment}
         >{comment}</li>
       )
   });
