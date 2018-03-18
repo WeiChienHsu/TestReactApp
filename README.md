@@ -131,3 +131,31 @@ describe('actions', () => {
   });
 });
 ```
+
+## Solve the problem for unknow props or type
+```
+ 1) Comments Reducer handles action with unknown type:
+     TypeError: Cannot read property 'type' of undefined
+```
+- Since we didn't pass any argument into funcion when testing
+```js
+expect(commentReducer()).to.be.instanceof(Array);
+```
+- Comment Reducer need the arguments of state and action Object
+
+```js
+export default function(state = [], action) {
+  switch(action.type){
+    case SAVE_COMMENT:
+      return [...state, action.payload]; // state.concat([action.payload])
+  }
+```
+- pass an explicitly undefined and an empty object  
+```js
+describe('Comments Reducer', () => {
+  it('handles action with unknown type', () => {
+      expect(commentReducer(undefined, {})).to.eql([]);
+  });
+```
+
+## Combine CommentReducer with RootReducer
