@@ -1,10 +1,21 @@
 import React, { Component } from 'react';
 
 
-export default class CommentList extends Component{
-  render(){
+const CommentList = (props) => {
+  const comment = props.comments.map( comment => {
+      return (
+        <li 
+        className = "comment-list"
+        key = {comment}
+        >{comment}</li>
+      )
+  });
+
     return(
-      <li className = "comment-list"> list </li>
-    )
+      <ul>
+        {comment}
+      </ul>
+    );
   }
-}
+
+  export default CommentList
