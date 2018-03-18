@@ -94,3 +94,8 @@ beforeEach(() => {
 ```js
 
 ```
+
+## Error need to be figured out
+```js
+const list = props.comments.map(comment =>  <li key = {comment}>{comment}</li> );
+```
